@@ -32,4 +32,9 @@ public class TestBase {
         driver = null;
     }
 
+    boolean areElementsPresent(WebDriver driver, By locator) {
+        return driver.findElements(locator).size() == 1;
+    }
+
+
 }
