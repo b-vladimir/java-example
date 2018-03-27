@@ -32,4 +32,10 @@ public class TestBase {
         driver = null;
     }
 
+    boolean areElementsPresent(WebDriver driver, By locator) {
+        System.out.println("Check the sticker");
+        return driver.findElements(locator).size() == 1;
+    }
+
+
 }
