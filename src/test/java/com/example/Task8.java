@@ -35,11 +35,6 @@ public class Task8 extends TestBase{
             System.out.println("Sticker is OK");
         }System.out.println("");
 
-        try{
-            Thread.sleep(5000);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
     }
 
 }

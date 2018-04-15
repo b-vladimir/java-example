@@ -28,6 +28,11 @@ public class TestBase {
 
     @After
     public void stop(){
+        try{
+            Thread.sleep(5000);
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
         driver.quit();
         driver = null;
     }
@@ -35,6 +40,12 @@ public class TestBase {
     boolean areElementsPresent(WebDriver driver, By locator) {
         System.out.println("Check the sticker");
         return driver.findElements(locator).size() == 1;
+    }
+
+    public void autrz(){
+        driver.findElement(By.name("username")).sendKeys("admin");
+        driver.findElement(By.name("password")).sendKeys("5815");
+        driver.findElement(By.name("login")).click();
     }
 
 

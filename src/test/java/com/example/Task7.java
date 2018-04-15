@@ -15,9 +15,7 @@ public class Task7 extends TestBase {
     @Test
     public void test1(){
         driver.navigate().to("http://localhost/litecart/admin");
-        driver.findElement(By.name("username")).sendKeys("admin");
-        driver.findElement(By.name("password")).sendKeys("5815");
-        driver.findElement(By.name("login")).click();
+        autrz();
 
         driver.findElement(By.xpath("//span[@class='name'][contains(text(),'Appearence')]")).click(); verify();
         driver.findElement(By.cssSelector("li[id=doc-template]")).click(); verify();
@@ -93,11 +91,6 @@ public class Task7 extends TestBase {
         driver.findElement(By.xpath("//span[@class='name'][contains(text(),'vQmods')]")).click(); verify();
         driver.findElement(By.cssSelector("li[id=doc-vqmods]")).click(); verify();
 
-        try{
-            Thread.sleep(5000);
-        }catch (InterruptedException e){
-            e.printStackTrace();
-        }
     }
 
     public void verify(){
