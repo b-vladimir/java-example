@@ -17,21 +17,21 @@ public class Task8 extends TestBase{
         myList = driver.findElements(By.xpath("//div[@id='box-most-popular']//li"));
         for (int i =1; i<myList.size()+1;i++) {
             Assert.assertEquals(true,
-                    areElementsPresent(driver, By.xpath("//html//div[@id='box-most-popular']//li[1]/a[1]/div[1]/div")));
+                    areElementsPresent(driver, By.xpath("//html//div[@id='box-most-popular']//li["+i+"]/a[1]/div[1]/div")));
             System.out.println("Sticker is OK");
         }System.out.println("");
 
         myList = driver.findElements(By.xpath("//div[@id='box-campaigns']//li"));
         for (int i =1; i<myList.size()+1;i++) {
             Assert.assertEquals(true,
-                    areElementsPresent(driver, By.xpath("//html//div[@id='box-most-popular']//li[1]/a[1]/div[1]/div")));
+                    areElementsPresent(driver, By.xpath("//html//div[@id='box-most-popular']//li["+i+"]/a[1]/div[1]/div")));
             System.out.println("Sticker is OK");
         }System.out.println("");
 
         myList = driver.findElements(By.xpath("//div[@id='box-latest-products']//li"));
         for (int i =1; i<myList.size()+1;i++) {
             Assert.assertEquals(true,
-                    areElementsPresent(driver, By.xpath("//html//div[@id='box-most-popular']//li[1]/a[1]/div[1]/div")));
+                    areElementsPresent(driver, By.xpath("//html//div[@id='box-most-popular']//li["+i+"]/a[1]/div[1]/div")));
             System.out.println("Sticker is OK");
         }System.out.println("");
 
