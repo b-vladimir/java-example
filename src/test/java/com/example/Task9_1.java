@@ -29,7 +29,13 @@ public class Task9_1 extends TestBase{
         List<WebElement> myList = driver.findElements(By.xpath("//tbody/tr[@class='row'][td[6]!=0]"));
         for (WebElement x: myList){
             x.findElement(By.xpath(".//td/a")).click();
-            List<WebElement> list2 = driver.findElements(By.xpath("//html//tr/td[@style=\"\"]"));
+            List<WebElement> list2 = driver.findElements(By.xpath("//html//tr/td[3]"));
+            List<String> zone = new ArrayList<>();
+            for (int i =1; i<list2.size()-1; i++){
+                String txt = list2.get(i).getText();
+                zone.add(txt);
+            }
+
             driver.navigate().back();
         }
 
