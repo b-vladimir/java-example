@@ -27,15 +27,17 @@ public class Task9_1 extends TestBase{
         autrz();
 
         List<WebElement> myList = driver.findElements(By.xpath("//tbody/tr[@class='row'][td[6]!=0]"));
-        for (WebElement x: myList){
-            x.findElement(By.xpath(".//td/a")).click();
+        for (int k =0;k<myList.size(); k++){
+            myList = driver.findElements(By.xpath("//tbody/tr[@class='row'][td[6]!=0]"));
+            myList.get(k).findElement(By.xpath(".//td/a")).click();
             List<WebElement> list2 = driver.findElements(By.xpath("//html//tr/td[3]"));
             List<String> zone = new ArrayList<>();
             for (int i =1; i<list2.size()-1; i++){
                 String txt = list2.get(i).getText();
                 zone.add(txt);
             }
-
+            checkSort2(zone);
+            System.out.println("OK");
             driver.navigate().back();
         }
 
@@ -52,6 +54,12 @@ public class Task9_1 extends TestBase{
         }
         Collections.sort(countrySort);
         Assert.assertTrue(country.equals(countrySort));
+    }
+
+    private void checkSort2(List<String> list){
+        List<String> countrySort = list;
+        Collections.sort(countrySort);
+        Assert.assertTrue(list.equals(countrySort));
     }
 
 }
