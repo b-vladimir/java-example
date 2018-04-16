@@ -18,7 +18,7 @@ public class Task9_1 extends TestBase{
 
         List<WebElement> myList = driver.findElements(By.xpath("//tbody/tr[@class='row']"));
         checkSort(myList);
-
+        System.out.println("OK");
     }
 
     @Test
@@ -33,6 +33,27 @@ public class Task9_1 extends TestBase{
             List<WebElement> list2 = driver.findElements(By.xpath("//html//tr/td[3]"));
             List<String> zone = new ArrayList<>();
             for (int i =1; i<list2.size()-1; i++){
+                String txt = list2.get(i).getText();
+                zone.add(txt);
+            }
+            checkSort2(zone);
+            System.out.println("OK");
+            driver.navigate().back();
+        }
+    }
+
+    @Test
+    public void test3(){
+        driver.get("http://localhost/litecart/admin/?app=geo_zones&doc=geo_zones");
+        autrz();
+
+        List<WebElement> myList = driver.findElements(By.xpath("//tr/td[3]"));
+        for (int k =1;k<myList.size(); k++){
+            myList = driver.findElements(By.xpath("//tr/td[3]"));
+            myList.get(k).findElement(By.xpath(".//a")).click();
+            List<WebElement> list2 = driver.findElements(By.xpath("//tr/td[3]/select/option[@selected=\"selected\"]"));
+            List<String> zone = new ArrayList<>();
+            for (int i =0; i<list2.size(); i++){
                 String txt = list2.get(i).getText();
                 zone.add(txt);
             }
