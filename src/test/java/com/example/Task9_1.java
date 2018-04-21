@@ -78,7 +78,7 @@ public class Task9_1 extends TestBase{
     }
 
     private void checkSort2(List<String> list){
-        List<String> countrySort = list;
+        List<String> countrySort = new ArrayList<>(list);
         Collections.sort(countrySort);
         Assert.assertTrue(list.equals(countrySort));
     }
