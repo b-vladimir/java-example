@@ -10,6 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+/*
+Сделайте сценарий, который выполняет следующие действия в учебном приложении litecart.
+1) входит в панель администратора http://localhost/litecart/admin
+2) прокликивает последовательно все пункты меню слева, включая вложенные пункты
+3) для каждой страницы проверяет наличие заголовка
+*/
+
 public class Task7 extends TestBase {
 
     @Test
