@@ -13,12 +13,25 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 
 public class Task11 extends TestBase{
+    private String [] user = {"a", "12345", "adfhf@dfg.sdf", "1234567890", "123"};
 
     @Test
     public void test(){
         driver.get("http://localhost/litecart/en/");
         driver.findElement(By.cssSelector("#box-account-login > div > form > table > tbody > tr:nth-child(5) > td > a")).click();
-        
+
+        driver.findElement(By.cssSelector("#create-account > div > form > table > tbody > tr:nth-child(2) > td:nth-child(1) > input[type=\"text\"]")).sendKeys("a");
+        driver.findElement(By.cssSelector("tr > td> input[name=lastname]")).sendKeys(user[0]);
+        driver.findElement(By.cssSelector("tr > td> input[name=address1]")).sendKeys(user[0]);
+        driver.findElement(By.cssSelector("tr > td> input[name=postcode]")).sendKeys(user[1]);
+        driver.findElement(By.cssSelector("tr > td> input[name=city]")).sendKeys(user[0]);
+        driver.findElement(By.cssSelector("span > span.select2-selection__arrow")).click();
+        driver.findElement(By.cssSelector("li.select2-results_option[text='Bolivia']")).click();
+        driver.findElement(By.cssSelector("tr > td> input[name=email]")).sendKeys(user[2]);
+        driver.findElement(By.cssSelector("tr > td> input[name=phone]")).sendKeys(user[3]);
+        driver.findElement(By.cssSelector("tr > td> input[name=password]")).sendKeys(user[4]);
+        driver.findElement(By.cssSelector("tr > td> input[name=confirmed_password]")).sendKeys(user[4]);
+        //driver.findElement(By.cssSelector("tr > td> input[name=create_account]")).click();
 
     }
 
