@@ -3,7 +3,6 @@ package com.example;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 import java.util.Arrays;
 
