@@ -9,6 +9,7 @@ package com.example;
 4) и ещё раз выход
  */
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -17,7 +18,7 @@ import org.openqa.selenium.support.ui.Select;
 import java.util.List;
 
 public class Task11 extends TestBase{
-    private String [] user = {"a", "12345", "adfhf@dfg.sdf", "1234567890", "123", "Bolivia"};
+    private String [] user = {"test5", "12345", "awerbnmf@dfg.sdf", "1234567890", "123", "Bolivia"};
     private Select select;
 
     @Test
@@ -37,8 +38,17 @@ public class Task11 extends TestBase{
         driver.findElement(By.cssSelector("tr > td> input[name=phone]")).sendKeys(user[3]);
         driver.findElement(By.cssSelector("tr > td> input[name=password]")).sendKeys(user[4]);
         driver.findElement(By.cssSelector("tr > td> input[name=confirmed_password]")).sendKeys(user[4]);
-        //driver.findElement(By.cssSelector("tr > td> input[name=create_account]")).click();
+        driver.findElement(By.cssSelector("#create-account > div > form > table > tbody > tr:nth-child(10) > td > button")).click();
 
+        driver.findElement(By.cssSelector("#box-account > div > ul > li:nth-child(4) > a")).click();
+        driver.findElement(By.xpath("//*[@id=\"box-account-login\"]/div/form/table/tbody/tr[1]/td/input")).sendKeys(user[2]);
+        driver.findElement(By.xpath("//*[@id=\"box-account-login\"]/div/form/table/tbody/tr[2]/td/input")).sendKeys(user[4]);
+        driver.findElement(By.xpath("//*[@id=\"box-account-login\"]/div/form/table/tbody/tr[4]/td/span/button[1]")).click();
+        driver.findElement(By.cssSelector("#box-account > div > ul > li:nth-child(4) > a")).click();
+
+        String check = driver.findElement(By.cssSelector("#notices > div")).getText();
+        System.out.println(check);
+        Assert.assertTrue(check.equals("You are now logged out."));
     }
 
     public Select getSelect(WebElement element) {
