@@ -19,7 +19,6 @@ import java.util.List;
 
 public class Task11 extends TestBase{
     private String [] user = {"test5", "12345", "awerbnmf@dfg.sdf", "1234567890", "123", "Bolivia"};
-    private Select select;
 
     @Test
     public void test(){
@@ -32,7 +31,7 @@ public class Task11 extends TestBase{
         driver.findElement(By.cssSelector("tr > td> input[name=postcode]")).sendKeys(user[1]);
         driver.findElement(By.cssSelector("tr > td> input[name=city]")).sendKeys(user[0]);
         WebElement element = driver.findElement(By.xpath("//*[@id=\"create-account\"]/div/form/table/tbody/tr[5]/td[1]/select"));
-        select = getSelect(element);
+        getSelect(element);
         select.selectByVisibleText(user[5]);
         driver.findElement(By.cssSelector("tr > td> input[name=email]")).sendKeys(user[2]);
         driver.findElement(By.cssSelector("tr > td> input[name=phone]")).sendKeys(user[3]);
@@ -51,9 +50,5 @@ public class Task11 extends TestBase{
         Assert.assertTrue(check.equals("You are now logged out."));
     }
 
-    public Select getSelect(WebElement element) {
-        select = new Select(element);
-        return select;
-    }
 
 }

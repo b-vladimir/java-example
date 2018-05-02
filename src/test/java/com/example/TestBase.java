@@ -5,8 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.awt.*;
 import java.util.concurrent.TimeUnit;
@@ -17,6 +19,7 @@ public class TestBase {
 
     public WebDriver driver;
     public WebDriverWait wait;
+    public Select select;//переменная для работы с выпадающим меню
 
     @Before
     public  void start(){
@@ -42,11 +45,16 @@ public class TestBase {
         return driver.findElements(locator).size() == 1;
     }
 
+    //метод для авторизации в админке
     public void autrz(){
         driver.findElement(By.name("username")).sendKeys("admin");
         driver.findElement(By.name("password")).sendKeys("5815");
         driver.findElement(By.name("login")).click();
     }
 
-
+    //метод для работы в выпадающим меню
+    public Select getSelect(WebElement element) {
+        select = new Select(element);
+        return select;
+    }
 }
