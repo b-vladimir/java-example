@@ -30,7 +30,7 @@ public class Task12 extends TestBase {
         driver.findElement(By.name("quantity")).sendKeys(product[1]);
         File file = new File("D:/GoogleDrive/Всякое/icon.jpg");
         WebElement upload = driver.findElement(By.cssSelector("#tab-general > table > tbody > tr:nth-child(9) > td > table > tbody > tr:nth-child(1) > td > input[type=\"file\"]"));
-        upload.sendKeys(file.getAbsolutePath());
+        upload.sendKeys(file.getAbsolutePath());//загрузка файла
 
         driver.findElement(By.xpath("//li/a[contains(text(),'Information')]")).click();
         WebElement manufacture = driver.findElement(By.xpath("//*[@id=\"tab-information\"]/table/tbody/tr[1]/td/select"));
@@ -49,7 +49,9 @@ public class Task12 extends TestBase {
 
         driver.findElement(By.name("save")).click();
 
-        driver.findElement(By.cssSelector("tr > td > a[contains(text(), "+product[0]+")]")).click();
+        driver.findElement(By.xpath("//tr/td/a[contains(text(), 'TestName')]")).click();
+        driver.findElement(By.name("delete")).click();
+        driver.switchTo().alert().accept();//подтвердить действие в massagebox
     }
 
 }
