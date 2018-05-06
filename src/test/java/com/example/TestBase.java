@@ -26,7 +26,7 @@ public class TestBase {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 50);
+        wait = new WebDriverWait(driver, 30);
     }
 
     @After
@@ -40,9 +40,13 @@ public class TestBase {
         driver = null;
     }
 
-    boolean areElementsPresent(WebDriver driver, By locator) {
+    boolean areElementsPresent(WebDriver driver, By locator) {//метод для проверки того что имеется 1 элемент
         System.out.println("Check the sticker");
         return driver.findElements(locator).size() == 1;
+    }
+
+    boolean isElementPresent(WebDriver driver, By locator){//Метод для проверки наличия элемента
+        return driver.findElements(locator).size() >0;
     }
 
     //метод для авторизации в админке
