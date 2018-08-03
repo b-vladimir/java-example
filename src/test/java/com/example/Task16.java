@@ -32,7 +32,7 @@ public class Task16 {
 
     @Before
     public  void start() throws MalformedURLException {
-        driver = new RemoteWebDriver(new URL("http://192.168.0.101:4444/wd/hub"), DesiredCapabilities.internetExplorer());;
+        driver = new RemoteWebDriver(new URL("http://192.168.56.1:4444/wd/hub"), DesiredCapabilities.internetExplorer());;
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
         wait = new WebDriverWait(driver, 30);
