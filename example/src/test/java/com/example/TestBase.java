@@ -38,15 +38,15 @@ public class TestBase {
     @Before
     public  void start(){
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        wait = new WebDriverWait(driver, 30);
+        driver.manage().timeouts().implicitlyWait(4, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(4, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 4);
     }
 
-    @After
+    @After()
     public void stop(){
         try{
-            Thread.sleep(5000);
+            Thread.sleep(3000);
         }catch (InterruptedException e){
             e.printStackTrace();
         }
