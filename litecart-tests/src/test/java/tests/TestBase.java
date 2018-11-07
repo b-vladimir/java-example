@@ -6,11 +6,11 @@ import org.junit.Before;
 
 public class TestBase {
 
-  protected final Application app = new Application();
+  Application app;
 
   @Before
   public void start() {
-    app.init();
+    app = new Application();
   }
 
   @After()
